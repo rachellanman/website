@@ -43,10 +43,9 @@ jobs:
         uses: actions/upload-pages-artifact@v1
       - name: Move result files 
         run: |
-          mkdir staging
           rm -rf .git
-          cp -r ./ staging
- 
+          mkdir staging
+          mv ./ staging
       - name: Clone the staging repo 
         uses: actions/checkout@v3
         with: 
