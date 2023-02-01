@@ -1,10 +1,12 @@
-name: Deploy Jekyll with GitHub Pages dependencies preinstalled
+name: wesite staging deployment
 
-# Build Pages
-# Move the result files
+# Build:
+  ## Setup Pages
+  ## Upload Artifact
+# Move Result Files
 # Clone the staging repo 
-# Move built files, and commit them
-# Push to the staging repositoryt 
+# Move the built files, commit them
+# Push to website-staging repository 
 
 on:
   # Allows you to run this workflow manually from the Actions tab
@@ -39,24 +41,20 @@ jobs:
           destination: ./_site   
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
-      - name: Clone the staging repo 
-        uses: actions/checkout@v3
-        with: 
-          repository: usds/website-staging
-          ref: 'main'
-          path: website-staging
-      - name: Move the website files 
+      - name: Move result files 
         run: |
           mkdir staging
           rm -rf .git
           cp -r ./ staging
-      - name: Clone the staging repository
+ 
+      - name: Clone the staging repo 
         uses: actions/checkout@v3
-        with:
+        with: 
+          token: secrets.STAGING_KEY
           repository: usds/website-staging
           ref: 'main'
-          path: website-staging 
-      - name: move and commit website files
+          path: website-staging
+      - name: Move the built files, commit them
         run: |
           rm -rf website-staging/staging
           cp staging/website website-staging/staging
