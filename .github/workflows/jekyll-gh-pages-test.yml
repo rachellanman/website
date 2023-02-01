@@ -44,7 +44,9 @@ jobs:
       - name: Move result files 
         run: |
           rm -rf .git
+          pwd
           mkdir staging
+          ls 
           mv ./ staging
       - name: Clone the staging repo 
         uses: actions/checkout@v3
