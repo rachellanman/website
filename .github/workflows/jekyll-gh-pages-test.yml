@@ -43,12 +43,12 @@ jobs:
         uses: actions/upload-pages-artifact@v1
       - name: Move result files 
         run: |
+          shopt -s extglob dotglob
           rm -rf .git
           pwd
           mkdir staging
           ls 
           mv !staging staging
-          pwd 
       - name: Clone the staging repo 
         uses: actions/checkout@v3
         with: 
