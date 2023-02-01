@@ -47,7 +47,7 @@ jobs:
           pwd
           mkdir staging
           ls 
-          mv ./ staging
+          mv website staging
       - name: Clone the staging repo 
         uses: actions/checkout@v3
         with: 
