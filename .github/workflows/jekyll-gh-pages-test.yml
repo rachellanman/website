@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Staging
-        uses: actions/checkout@v3.1.0
+        uses: actions/checkout@v3
         with: 
           ref: staging
       - name: Setup Pages
@@ -34,7 +34,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
       - name: clone the staging repo 
-        uses: actions/checkout@3.1.0
+        uses: actions/checkout@v3
         with: 
           repository: usds/website-staging
           ref: 'main'
