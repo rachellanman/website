@@ -48,7 +48,7 @@ jobs:
           pwd
           mkdir staging
           ls 
-          mv !staging staging
+          mv !(staging) staging
       - name: Clone the staging repo 
         uses: actions/checkout@v3
         with: 
