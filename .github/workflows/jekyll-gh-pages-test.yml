@@ -47,7 +47,7 @@ jobs:
           rm -rf .git
           pwd
           mkdir staging
-          ls 
+          ls -lah
           mv !(staging) staging
       - name: Clone the staging repo 
         uses: actions/checkout@v3
