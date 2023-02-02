@@ -58,7 +58,6 @@ jobs:
       - name: Clone the staging repo 
         uses: actions/checkout@v3
         with: 
-          ssh-key: ${{ secrets.STAGING_KEY }}
           repository: usds/website-staging
           ref: 'main'
           path: website-staging
