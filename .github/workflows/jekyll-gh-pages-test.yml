@@ -43,6 +43,8 @@ jobs:
       #   uses: actions/upload-pages-artifact@v1
       - name: Move result files 
         run: |
+          pwd
+          ls -lah
           rm -rf .git
       #     shopt -s extglob dotglob
            
