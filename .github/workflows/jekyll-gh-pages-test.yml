@@ -27,7 +27,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Staging
+      - name: Checkout Staging Branch on Website 
         uses: actions/checkout@v3
         with: 
           ref: staging
@@ -38,7 +38,7 @@ jobs:
         with:
           source: ./
           destination: ./_site   
-      - name: Move result files 
+      - name: Move generated site files 
         run: |
           mkdir output 
           rm -rf .git
