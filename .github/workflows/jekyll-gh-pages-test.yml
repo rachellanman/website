@@ -39,16 +39,17 @@ jobs:
         with:
           source: ./
           destination: ./_site   
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+      # - name: Upload artifact
+      #   uses: actions/upload-pages-artifact@v1
       - name: Move result files 
         run: |
-          shopt -s extglob dotglob
           rm -rf .git
-          pwd
-          mkdir staging
-          ls -lah
-          mv !(staging) staging
+      #     shopt -s extglob dotglob
+           
+      #     pwd
+      #     mkdir staging
+      #     ls -lah
+      #     mv !(staging) staging
       - name: Clone the staging repo 
         uses: actions/checkout@v3
         with: 
@@ -58,8 +59,6 @@ jobs:
           path: website-staging
       - name: Move the built files, commit them
         run: |
-          rm -rf website-staging/staging
-          cp staging/website website-staging/staging
           cd website-staging
       - name: Push to website-staging repository 
         uses: cpina/github-action-push-to-another-repository@main
