@@ -44,8 +44,11 @@ jobs:
       - name: Move result files 
         run: |
           pwd
+          mkdir output 
           ls -lah
           rm -rf .git
+          cp -r _site output
+        
       #     shopt -s extglob dotglob
            
       #     pwd
@@ -55,7 +58,7 @@ jobs:
       - name: Clone the staging repo 
         uses: actions/checkout@v3
         with: 
-          token: secrets.STAGING_KEY
+          token: ${{ secrets.STAGING_KEY }}
           repository: usds/website-staging
           ref: 'main'
           path: website-staging
@@ -67,7 +70,7 @@ jobs:
         env:
           SSH_DEPLOY_KEY: ${{ secrets.STAGING_KEY }}
         with:
-          source-directory: output/
+          source-directory: output 
           destination-github-username: 'usds'
           destination-repository-name: 'website-staging'
           target-branch: main
